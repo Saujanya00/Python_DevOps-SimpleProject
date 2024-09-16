@@ -9,5 +9,6 @@ def client():
 
 def test_homepage(client):
     """Test the homepage."""
-    rv = client.get('/')
-    assert rv.status_code == 200
+    response = client.get('/')
+    assert response.data == b'Hello, Flask!'
+    assert response.status_code == 200
